@@ -22,6 +22,8 @@ if (!looksReal) {
   process.exit(1);
 }
 
+const postId = postUrl.match(/\/status\/(\d+)$/)?.[1] ?? '';
+console.log(`Post id: ${postId}`);
 mkdirSync(outDir, { recursive: true });
 copyFileSync(join(botDir, 'POST.json'), join(outDir, 'POST.json'));
 console.log(`Post handed to the gate: ${postUrl}`);
